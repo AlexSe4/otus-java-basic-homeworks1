@@ -24,7 +24,8 @@ public class App {
 
     // метод selectColor()
     public static void selectColor() {
-        int data = 14;
+        int data = new
+                Random().nextInt(100) + 1;
         if (data <= 10) {
             System.out.println("Красный");
         } else if (data <= 20) {
@@ -38,39 +39,49 @@ public class App {
     // Метод compareNumbers()
     public static void compareNumbers() {
 
-        int a = 10;
-        int b = 7;
+        int a = new Random().nextInt(100) + 1;
+        int b = new Random().nextInt(100) + 1;
         if (a >= b) {
             System.out.println("a >= b");
         } else {
             System.out.println("a < b");
         }
     }
-//Метод addOrSubtractAndPrint()
+
+    //Метод addOrSubtractAndPrint()
     public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
-        if (increment) {
-            int result = initValue + delta;
-            System.out.println(initValue + "+" + delta + "=" + result);
+        if (increment == true) {
+            System.out.println(initValue + delta + " - результат сложения");
         } else {
-            int result = initValue - delta;
-            System.out.println(initValue + "-" + delta + "=" + result);
+            System.out.println(initValue - delta + " - результат вычитания");
 
         }
     }
 
-    // Метод из (*) части
-    public static void executeMethod(int methodNumber) {
-        Random random = new Random();
+    public static void main(String[] args) {
+        greetings();
+        checkSign(5, 7, 9);
+        selectColor();
+        compareNumbers();
+        addOrSubtractAndPrint(4, 7, false);
 
-        switch (methodNumber) {
+        System.out.print("Введите число от 1 до 5, чтобы выбрать метод: ");
+        Scanner keyboard = new Scanner(System.in);
+        int inputNumber, a, b, c, initValue, delta;
+        boolean increment;
+        inputNumber = keyboard.nextInt();
+        a = (int) (Math.random() * 20 - 10);
+        b = (int) (Math.random() * 20 - 10);
+        c = (int) (Math.random() * 20 - 10);
+        initValue = (int) (Math.random() * 10);
+        delta = (int) (Math.random() * 10);
+        increment = new Random().nextBoolean();
+
+        switch (inputNumber) {
             case 1:
                 greetings();
                 break;
             case 2:
-                int a = random.nextInt(100) - 50;
-                int b = random.nextInt(100) - 50;
-                int c = random.nextInt(100) - 50;
-                System.out.println("a = " + a + ", b = " + b + ", c = " + c);
                 checkSign(a, b, c);
                 break;
             case 3:
@@ -80,48 +91,19 @@ public class App {
                 compareNumbers();
                 break;
             case 5:
-                int initValue = random.nextInt(100);
-                int delta = random.nextInt(50);
-                boolean increment = random.nextBoolean();
-                System.out.println("initValue = " + initValue + ", delta = " + delta + ", increment = " + increment);
                 addOrSubtractAndPrint(initValue, delta, increment);
                 break;
             default:
-                System.out.println("Неверный номер метода");
+                System.out.println("Ошибка!");
+
         }
     }
+}
 
 
-    public static void main(String[] args) {
-        System.out.println("Вызов метода greetings()");
-        greetings();
-        System.out.println("Вызов метода checkSign()");
-        checkSign(1, 2, 3);
-        checkSign(-10, -5, -2);
-        System.out.println("Вызов метода selectColor()");
-        selectColor();
-        System.out.println("Вызов метода compareNumbers()");
-        compareNumbers();
-        System.out.println("Вызов addOrSubtractAndPrint()");
-        addOrSubtractAndPrint(100, 25, true);
-        addOrSubtractAndPrint(100, 25, false);
-            // (*) Дополнительная часть
-            System.out.println("Звездочка");
-            Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Введите число от 1 до 5:");
-            int methodNumber = scanner.nextInt();
 
-            if (methodNumber >= 1 && methodNumber <= 5) {
-                executeMethod(methodNumber);
-            } else {
-                System.out.println("Число должно быть от 1 до 5");
-            }
 
-            scanner.close();
-        }
-
-    }
 
 
 
