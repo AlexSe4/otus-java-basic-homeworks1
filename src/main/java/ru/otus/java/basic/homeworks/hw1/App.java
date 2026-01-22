@@ -1,4 +1,4 @@
-package ru.otus.java.basic.homeworks.homework1;
+package ru.otus.java.basic.homeworks.hw1;
 
 import java.util.Random;
 import java.util.Scanner;
