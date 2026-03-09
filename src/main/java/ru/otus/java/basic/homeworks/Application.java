@@ -14,7 +14,8 @@ public class Application {
         int[] b = {2, 2};
         int[] c = {1, 1, 1, 1, 1};
         int[] sum = sumArrays(a, b, c);
-       // hasEquilibrium(testArr);
+
+        hasEquilibriumPoint(testArr);
         isDescending(testArr);
         int[] test1 = {5, 4, 3, 2, 1};
         reverse(testArr);
@@ -108,8 +109,31 @@ public class Application {
         return result;
     }
     //Реализуйте метод, проверяющий что есть точка в массиве, в которой сумма левой и правой части равны. Точка находится между элементами.
+    public static boolean hasEquilibriumPoint(int[] array) {
+        if (array == null || array.length < 2) {
+            return false;
+        }
+
+        // Общая сумма всех элементов
+        int total = 0;
+        for (int num : array) {
+            total += num;
+        }
 
 
+        int leftSum = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            leftSum += array[i]; // добавляем текущий элемент к левой сумме
+            // Проверяем условие: сумма слева равна сумме справа
+            // Сумма справа = общая сумма - сумма слева
+            if (leftSum == total - leftSum) {
+                return true;
+            }
+        }
+
+
+        return false;
+    }
 
 //Реализуйте метод, проверяющий что все элементы массива идут в порядке убывания
 public static boolean isDescending(int[] array) {
