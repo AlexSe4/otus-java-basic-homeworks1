@@ -8,7 +8,9 @@ public class Application {
         printTheString(5, "Привет!");
         sum(1, 2, 3, 4, 5, 6, 7, 8, 9);
         certainValue(testArr, 5);
+        System.out.println("Массив после заполнения: " + Arrays.toString(testArr));
         plusValue(testArr, 1);
+        System.out.println(Arrays.toString(testArr));
         sumComparison(testArr);
         int[] a = {1, 2, 3};
         int[] b = {2, 2};
@@ -34,6 +36,10 @@ public class Application {
     //Реализуйте метод, принимающий в качестве аргумента целочисленный массив,
     // суммирующий все элементы, значение которых больше 5, и печатающий полученную сумму в консоль.
     public static void sum(int... array) {
+        if (array == null) {
+            System.out.println("Ошибка: Массив не может быть null");
+            return;
+        }
         int sum = 0;
         for (int value : array) {
             if (value > 5) {
@@ -47,19 +53,25 @@ public class Application {
     // метод должен заполниться каждую ячейку массива указанным числом.
 
     public static void certainValue(int[] testArr, int num) {
+        if (testArr == null) {
+            System.out.println("Ошибка: Массив не может быть null");
+            return;
+        }
         for (int i = 0; i < testArr.length; i++) {
             testArr[i] = num;
         }
-        System.out.println(Arrays.toString(testArr));
     }
 
     //Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив,
     // увеличивающий каждый элемент которого на указанное число.
     public static void plusValue(int[] testArr, int num) {
+        if (testArr == null) {
+            System.out.println("Ошибка: Массив не может быть null");
+            return;
+        }
         for (int i = 0; i < testArr.length; i++) {
             testArr[i] += num;
         }
-        System.out.println(Arrays.toString(testArr));
     }
 
 
@@ -67,20 +79,40 @@ public class Application {
     // сумма элементов какой из половин массива больше.
 
     public static void sumComparison(int[] arr) {
+        if (arr == null) {
+            System.out.println("Ошибка: Массив не может быть null");
+            return;
+        }
         int sumleft = 0;
         int sumright = 0;
-        for (int i = 0; i < arr.length / 2; i++) {
+        int middle = arr.length / 2;
+
+        System.out.println("Массив: " + Arrays.toString(arr));
+        System.out.print("Левая половина:  ");
+
+        for (int i = 0; i < middle; i++) {
             sumleft += arr[i];
+            System.out.print(arr[i] + "  ");
+            System.out.println("сумма:"   + sumleft + ")");
+            System.out.print("Правая половина:   ");
+
         }
-        for (int i = arr.length / 2; i < arr.length; i++) {
+        for (int i = middle; i < arr.length; i++) {
             sumright += arr[i];
-        }
-        if (sumleft > sumright) {
-            System.out.println("Левая половина больше чем правая и равна " + sumleft);
-        } else if (sumleft < sumright) {
-            System.out.println("Правая половина больше чем левая и равна " + sumright);
-        } else {
-            System.out.println("суммы половин равны " + sumleft + "=" + sumright);
+            System.out.println("(сумма:   "   + sumright + ")");
+
+            if (arr.length % 2 != 0) {
+                System.out.println("→ При нечетной длине центральный элемент [" + arr[middle] + "] включен в правую половину");
+            }
+
+            if (sumleft > sumright) {
+                System.out.println("Левая половина больше (разница: " + (sumleft - sumright) + ")");
+            } else if (sumleft < sumright) {
+                System.out.println("Правая половина больше (разница: " + (sumright - sumleft) + ")");
+            } else {
+                System.out.println("Суммы половин равны");
+            }
+            System.out.println();
         }
     }
     //Реализуйте метод, принимающий на вход набор целочисленных массивов, и получающий новый массив равный сумме входящих;
@@ -114,7 +146,6 @@ public class Application {
             return false;
         }
 
-        // Общая сумма всех элементов
         int total = 0;
         for (int num : array) {
             total += num;
@@ -130,7 +161,7 @@ public class Application {
                 return true;
             }
         }
-        
+
         return false;
     }
 
