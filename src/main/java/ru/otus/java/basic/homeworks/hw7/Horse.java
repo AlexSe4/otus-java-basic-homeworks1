@@ -44,7 +44,6 @@ public class Horse implements Transport {
                 " км по " + terrain.toString() + ". Осталось сил у лошади: " + energy);
         return true;
     }
-
     public void getInfo() {
         System.out.println("Силы лошади: " + energy);
     }

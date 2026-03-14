@@ -46,7 +46,6 @@ public class MainApp {
         person.move(30, Terrain.DENSE_FOREST);
         person.move(20, Terrain.MARSH);
         person.standUp();
-
     }
 }
 

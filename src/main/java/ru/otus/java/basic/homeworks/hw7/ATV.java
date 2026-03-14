@@ -34,7 +34,6 @@ public class ATV implements Transport {
         }
 
         fuel -= neededFuel;
-        // Используем toString() вместо getTitle()
         System.out.println(driver.getName() + " на вездеходе проехал " + distance +
                 " км по " + terrain.toString() + ". Осталось бензина: " + fuel);
         return true;
@@ -43,4 +42,5 @@ public class ATV implements Transport {
     public void getInfo() {
         System.out.println("Количество топлива у вездехода: " + fuel);
     }
+
 }

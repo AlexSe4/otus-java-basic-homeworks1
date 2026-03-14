@@ -38,6 +38,7 @@ public class Bicycle implements Transport {
             return false;
         }
 
+
         riderEnergy -= neededEnergy;
         // Используем toString() вместо getTitle()
         System.out.println(driver.getName() + " на велосипеде проехал " + distance +

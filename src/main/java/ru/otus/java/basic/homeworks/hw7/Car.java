@@ -8,7 +8,6 @@ public class Car implements Transport {
     public Car(double fuel) {
         this.fuel = fuel;
     }
-
     @Override
     public String getTransportName() {
         return "Машина";

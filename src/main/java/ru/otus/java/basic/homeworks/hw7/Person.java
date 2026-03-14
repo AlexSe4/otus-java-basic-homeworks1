@@ -33,7 +33,7 @@ public class Person {
         if (currentTransport != null) {
             return currentTransport.move(distance, terrain);
         } else {
-            // Используем toString()
+
             System.out.println(name + " идет пешком " + distance + " км по " + terrain.toString());
             return true;
         }
