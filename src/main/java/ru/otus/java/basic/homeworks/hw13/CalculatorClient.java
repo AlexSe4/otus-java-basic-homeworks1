@@ -20,6 +20,7 @@ public class CalculatorClient {
             System.out.println("Введите выражение в формате: число1 оператор число2 (например: 1 + 8)");
             System.out.println("Для выхода введите 'exit'");
 
+
             while (true) {
                 System.out.print("> ");
                 String userMessage = scanner.nextLine();
