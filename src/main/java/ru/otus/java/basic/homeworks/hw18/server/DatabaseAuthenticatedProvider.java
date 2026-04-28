@@ -29,7 +29,7 @@ public class DatabaseAuthenticatedProvider implements AuthenticatedProvider {
 
     @Override
     public void initialize() {
-        System.out.println("Инициализация DatabaseAuthenticatedProvider (SQLite)");
+        System.out.println("DatabaseAuthenticatedProvider (SQLite)");
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("CREATE TABLE IF NOT EXISTS roles (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -93,7 +93,7 @@ public class DatabaseAuthenticatedProvider implements AuthenticatedProvider {
         List<Roles> userRoles = getRoleForUser(userId);
 
         if (!userRoles.contains(Roles.ADMIN) && !userRoles.contains(Roles.USER)) {
-            clientHandler.sendMsg("У вас нет прав для входа.");
+            clientHandler.sendMsg("Hет прав для входа.");
             return false;
         }
 
@@ -172,7 +172,7 @@ public class DatabaseAuthenticatedProvider implements AuthenticatedProvider {
 
         int userId = getUserIdByUsername(username);
         if (userId == -1) {
-            clientHandler.sendMsg("Пользователь с таким именем не найден.");
+            clientHandler.sendMsg("Пользователя с таким именем нет.");
             return false;
         }
         if (roleExists(userId, Roles.ADMIN)) {
@@ -228,7 +228,7 @@ public class DatabaseAuthenticatedProvider implements AuthenticatedProvider {
                 return true;
             }
         } catch (SQLException e) {
-            clientHandler.sendMsg("Произошла ошибка при удалении роли администратора. Пожалуйста, попробуйте позже.");
+            clientHandler.sendMsg("Произошла ошибка. Пожалуйста, попробуйте позже.");
             return false;
         }
         return false;

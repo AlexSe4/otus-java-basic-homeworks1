@@ -39,6 +39,7 @@ public class Server {
         }
     }
 
+
     public synchronized void subscribe(ClientHandler clientHandler) {
         String username = clientHandler.getUsername();
         clients.add(clientHandler);

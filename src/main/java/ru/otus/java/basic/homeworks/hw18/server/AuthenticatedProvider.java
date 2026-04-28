@@ -5,6 +5,5 @@ public interface AuthenticatedProvider {
     boolean authenticate(ClientHandler clientHandler, String login, String password);
     boolean registration(ClientHandler clientHandler, String login, String password, String username);
     boolean addAdmin(ClientHandler clientHandler, String newAdminName,ClientHandler newAdminHandler);
-
     boolean removeAdminRole(ClientHandler clientHandler, String usernameToRemove,ClientHandler messageAdmin);
 }

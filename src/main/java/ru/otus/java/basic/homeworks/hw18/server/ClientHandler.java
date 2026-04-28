@@ -122,7 +122,7 @@ public class ClientHandler {
                         newAdminHandler.setRole(Roles.ADMIN);
                     }
                 } else {
-                    sendMsg("У вас нет прав для выполнения этой команды.");
+                    sendMsg("Отсутствуют права для выполнения этой команды.");
                 }
             } else if (message.startsWith("/remove_admin ")) {
                 if (this.role == Roles.ADMIN) {
@@ -138,7 +138,7 @@ public class ClientHandler {
                         clientToRemove.setRole(Roles.USER);
                     }
                 } else {
-                    sendMsg("У вас нет прав для выполнения этой команды.");
+                    sendMsg("Отсутствуют права для выполнения этой команды.");
                 }
             }else if (message.startsWith("/w ")) {
                 sendPrivateMessage(message);
@@ -239,7 +239,4 @@ public class ClientHandler {
         }
         sendMsg(helpMessage);
     }
-
-
-
 }
